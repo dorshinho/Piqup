@@ -1,6 +1,37 @@
-;(function(){
-
+;
+(function(exports) {
     "use strict";
+
+    function scrollBodyTo(to, duration, callback) {
+        var start = window.scrollY,
+            change = to - start,
+            currentTime = 0,
+            increment = 20;
+
+        var animateScroll = function() {
+            currentTime += increment;
+            var val = Math.easeInOutQuad(currentTime, start, change, duration);
+            window.scrollTo(0, val);
+            if (currentTime <= duration) {
+                requestAnimationFrame(animateScroll);
+            } else {
+                callback && callback();
+            }
+        };
+        requestAnimationFrame(animateScroll);
+    }
+
+    //t = current time
+    //b = start value
+    //c = change in value
+    //d = duration
+    Math.easeInOutQuad = function(t, b, c, d) {
+        t /= d / 2;
+        if (t < 1) return c / 2 * t * t + b;
+        t--;
+        return -c / 2 * (t * (t - 2) - 1) + b;
+    };
+
 
     Backbone.PiqupRouter = Backbone.Router.extend({
 
@@ -14,7 +45,11 @@
             this.signupView = new Backbone.SignUpView();
             this.dashboardView = new Backbone.DashBoardView();
 
-            this.addGameView = new Backbone.addGameView();
+
+            this.GamesView = new Backbone.GamesView({
+                collection: this.trips
+            });
+
 
             Backbone.history.start();
         },
@@ -22,7 +57,7 @@
         routes: {
             "signup": "signup",
             "dashboard": "dashboard",
-            "games": "games",
+            "trips": "trips",
             "*default": "home"
         },
         signup: function() {
@@ -32,10 +67,8 @@
             this.dashboardView.render();
         },
         games: function() {
-            this.games.render();
-        },
-        addfieldtrip: function() {
-            this.addtripView.render();
+            var self = this;
+            this.games.fetch();
         },
         home: function() {
             this.view.render();
@@ -46,7 +79,7 @@
         defaults: {
             "signup": "false",
             "login": "not logged in",
-            "addgame": "false"
+            "addfieldtrip": "false"
         }
     })
 
@@ -65,27 +98,34 @@
             event.preventDefault();
             // debugger;
             var x = {
-                login: this.el.querySelector("input[name='player']").value
+                login: this.el.querySelector("input[name='user']").value
             }
             this.model.add(x, {
                 validate: true
             });
+
         }
     })
 
-    Backbone.AddGameView = Backbone.TemplateView.extend({
+    Backbone.GamesView = Backbone.TemplateView.extend({
         el: ".container",
-        view: "game",
+        view: "Gamesview",
         events: {
-            "click #game": "game"
+            "click #games": "games",
+            "submit form.login": "games"
         },
-        addatrip: function(event) {
+        trips: function(event) {
             event.preventDefault();
-            var x = {
-                addgame: this.querySelector("a[name= 'addgamebutton']").value
+            var data = {
+                fieldtrips: this.el.querySelector("button[name='Yo']").value
             }
+            this.collection.add(data, {
+                validate: true
+            });
+            console.log(data);
         }
     })
+
 
     Backbone.DashBoardView = Backbone.TemplateView.extend({
         el: ".container",
@@ -99,4 +139,6 @@
     })
 
 
-})(typeof module === "object" ? module.exports : window);
+
+
+})(typeof module === "object" ? module.exports : window)

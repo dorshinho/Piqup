@@ -29,7 +29,8 @@ function app(){
         // other stuff
         {url: "./bower_components/pace/pace.min.js"},
         {url: "./js/TemplateView.js"},
-        {url: "./js/Piqup.js"}
+        {url: "./js/person.js"},
+        {url: "./js/piqup.js"}
     ).then(function(){
         // if turning on JSnoX, uncommment the following line
         // window.d = jsnox(React);
@@ -38,7 +39,7 @@ function app(){
 
         document.querySelector("html").style.opacity = 1;
         // start app?
-
+     new Backbone.PiqupRouter();
     })
 
 }
