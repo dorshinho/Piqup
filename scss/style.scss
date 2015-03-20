@@ -187,7 +187,7 @@ h3 {
     // outline: solid #000 1px;
 }
 header {
-    background-image: url(http://www.npr.org/assets/img/2014/05/19/brazil-soccer-dreams1_wide-6111047416e4954da0b17ae5e4066ecfc606e65d.jpg);
+    background-image: url(http://pbnjane.com/wp-content/uploads/2015/03/Piqupapp.jpg);
     min-height: 800px;
     background-size: cover;
 }
@@ -251,3 +251,27 @@ ul {
      display: inline-block;
      margin-left: 25px;
  }
+ .fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+a.menu-collaps i {
+  font-size: 32px;
+  line-height: 32px;
+  position: relative;
+  z-index: 3;
+  float: right;
+  display: block;
+  margin-top: 102px;
+  color: #d4ae60;
+  text-decoration: none;
+  -webkit-transition: transform 0.3s;
+  transition: transform 0.3s;
+}
+.fa-navicon:before, .fa-reorder:before, .fa-bars:before {
+  content: "\f0c9";
+}
