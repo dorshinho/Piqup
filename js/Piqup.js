@@ -78,8 +78,8 @@
     })
 
     Backbone.GamesView = Backbone.TemplateView.extend({
-        el: ".container",
-        view: "Gamesview",
+        el: ".yo",
+        view: "gamesview",
         events: {
             "click #games": "games",
             "submit form.login": "games"
@@ -98,7 +98,7 @@
 
 
     Backbone.DashBoardView = Backbone.TemplateView.extend({
-        el: ".container",
+        el: ".yo",
         view: "dashboard",
         events: {
             "click #dashboard": "dashboard"

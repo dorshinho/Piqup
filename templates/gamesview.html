@@ -1,34 +1,5 @@
-<div class="specialexamplemenu">
-    <div class="pure-menu pure-menu-horizontal">
-        <a href="#dashboard" class="pure-menu-heading pure-menu-link">DASHBOARD</a>
-        <ul class="pure-menu-list">
-            <li class="pure-menu-item"><a href="#games" class="pure-menu-link">GAMES</a>
-            </li>
-            <li class="pure-menu-item"><a href="#parents" class="pure-menu-link">PARENTS</a>
-            </li>
-            <li class="pure-menu-item"><a href="#signup" class="pure-menu-link">LOGIN</a>
-            </li>
-        </ul>
-    </div>
-</div>
+<h1>HELLO AGAIN
+</h1>
 
 
-<div id="tripsdiv">
-    <ul id="triplist">
-        <% data.each(function(trip){ %>
-            <div class="tripsapi" name="tripapi">
-                <h4><%= trip.get('trip_title') %></h4>
-                <span><%=trip.get('city') %></span>
-                <span>Start time: <strong> <%= trip.get('date_began') %> </strong></span>
-                <span>End time: <strong> <%= trip.get('time_began') %> </strong></span>
-                <span>Time returned: <strong> <%= trip.get('time_returned') %> </strong></span>
-                <span>Fee: <strong> <%= trip.get('cost') %> </strong></span>
-            </div>
-            <% }) %>
-    </ul>
-</div>
-
-<div class="addnewtrip">
-    <a href="#addfieldtrip" name="addtripbutton">Add a trip...</a>
-</div>
 
