@@ -29,19 +29,7 @@ function app(){
         {url: "./bower_components/pace/pace.min.js"},
         {url: "./js/TemplateView.js"},
         {url: "./js/person.js"},
-        {url: "./js/piqup.js"},
-        {url: "./js/map_index.js"},
-        {url: "./js/infobox.js"},
-        {url: "./js/jquery.min.js"},
-        {url: "./js/jflickrfeed.js"},
-        {url: "./js/wow.min.js"},
-        {url: "./js/jquery.parallax-0.2-min.js"},
-        {url: "./js/map_place.js"},
-        {url: "./js/map_place_friends.js"},
-        {url: "./js/map_visits.js"},
-        {url: "./js/map.js"},
-        {url: "./js/bootstrap.min.js"},
-        {url: "./js/all_scr.js"}
+        {url: "./js/piqup.js"}
 
     ).then(function(){
         // if turning on JSnoX, uncommment the following line
