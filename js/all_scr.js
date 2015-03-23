@@ -11,16 +11,7 @@ $(document).ready(function() {
     })
 
     //////Autorization//////
-    function initTopMenu() {
-    $('.log_btn').on('click', function() {
-        "use strict";
-        $('#autorized').removeClass("none");
-    })
-    $('#closeau').on('click', function() {
-        "use strict";
-        $('#autorized').addClass("none");
-    })
-}
+
 
     //////Page load//////
     $("body").css("display", "none");
@@ -52,7 +43,16 @@ $(document).ready(function() {
     })
 });
 
-
+    function initTopMenu() {
+    $('.log_btn').on('click', function() {
+        "use strict";
+        $('#autorized').removeClass("none");
+    })
+    $('#closeau').on('click', function() {
+        "use strict";
+        $('#autorized').addClass("none");
+    })
+}
 
 //////Side menu//////
 function initSideMenu() {

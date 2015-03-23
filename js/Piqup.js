@@ -43,7 +43,7 @@
         home: function() {
             this.view.render().then(function(){
                 initSideMenu();
-
+                initTopMenu();
                 new WOW().init();
             });
         }
