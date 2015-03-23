@@ -1,11 +1,13 @@
 @import "../bower_components/normalize-scss/_normalize.scss";
-@import "../bower_components/typeplate-starter-kit/css/_typeplate.scss";
+// @import "../bower_components/typeplate-starter-kit/css/_typeplate.scss";
 @import "./mixins.scss";
-@import "../bower_components/font-awesome/css/font-awesome.min.css";
-
-
-
-
+@import "./imports/animate.scss";
+@import "./imports/bootstrap.scss";
+@import "./imports/font-awesome.scss";
+@import "./imports/main.scss";
+@import "./imports/pushy.scss";
+@import "./imports/responsive.scss";
+@import "./imports/rs-plugins-settings.scss";
 
 /**
  * BOX-SIZING
@@ -72,6 +74,4 @@
 img {
     max-width: 100%;
 }
-
-
 

@@ -30,7 +30,7 @@
         },
         render: function() {
             var self = this;
-            this.loadTemplate(this.options.view || this.view).then(function(fn) {
+            return this.loadTemplate(this.options.view || this.view).then(function(fn) {
                 var d = self.model || self.collection;
                 self.el.innerHTML = fn({
                     data: d

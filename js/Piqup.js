@@ -41,7 +41,11 @@
             this.games.fetch();
         },
         home: function() {
-            this.view.render();
+            this.view.render().then(function(){
+                initSideMenu();
+
+                new WOW().init();
+            });
         }
     })
 
@@ -96,7 +100,6 @@
         }
     })
 
-
     Backbone.DashBoardView = Backbone.TemplateView.extend({
         el: ".yo",
         view: "dashboard",
@@ -107,8 +110,5 @@
             event.preventDefault();
         }
     })
-
-
-
 
 })(typeof module === "object" ? module.exports : window)

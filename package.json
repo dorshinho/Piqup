@@ -11,7 +11,7 @@
         "lint": "jshint ./js/**.js; echo '----- linting done';",
         "watchify:js": "watchify ./js/app-browserify.js -t babelify -t uglifyify -o ./dist/app-browserify.js",
         "build": "npm run build:css",
-        "watch": "parallelshell 'npm run watch:css' 'npm run watchify:js'",
+        "watch": "parallelshell 'npm run watchify:js' 'npm run watch:css'",
         "start": "node heroku-server.js & npm run watch",
         "env": "env",
         "open": "open http://localhost:3000",
