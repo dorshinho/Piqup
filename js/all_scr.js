@@ -10,7 +10,6 @@ $(document).ready(function() {
         $('#pl').addClass("none");
     })
 
-    //////Autorization//////
 
 
     //////Page load//////
@@ -43,6 +42,8 @@ $(document).ready(function() {
     })
 });
 
+
+    //////Autorization//////
     function initTopMenu() {
     $('.log_btn').on('click', function() {
         "use strict";
