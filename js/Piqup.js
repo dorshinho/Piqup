@@ -27,29 +27,73 @@
         routes: {
             "signup": "signup",
             "dashboard": "dashboard",
-            "trips": "trips",
+            "games": "games",
             "*default": "home"
         },
         signup: function()  {
             this.signupView.render().then(function(){
+                initAddMenu();
                 initSideMenu();
                 initTopMenu();
                 new WOW().init();
             });
         },
         dashboard: function() {
-            this.dashboardView.render();
+          this.dashboardView.render().then(function(){
+                initAddMenu();
+                initTopMenu();
+                new WOW().init();
+            });
         },
-        games: function() {
-            var self = this;
-            this.games.fetch();
+         games: function() {
+        this.gamesView.render().then(function(){
+                initSideMenu();
+                initTopMenu();
+                new WOW().init();
+            });
         },
         home: function() {
             this.view.render().then(function(){
                 initSideMenu();
                 initTopMenu();
                 new WOW().init();
+
+                function success(pos) {
+                    // pos.coords.latitude;
+                    this.map = new GMaps ({
+                        el: "#map",
+                        lat: pos.coords.latitude,
+                        lng: pos.coords.longitude
+                    })
+
+                    this.map.addMarker({
+                    lat: 29.637975,
+                    lng: -95.395283,
+                    title: 'Houston',
+
+                    click: function(e) {
+                        alert('You clicked in this marker');
+                    }
+                });
+
+                      this.map.addMarker({
+                    lat: 29.637975,
+                    lng: -95.395283,
+                    title: 'Houston Dynmao',
+
+                    click: function(e) {
+                        alert('You clicked in this marker');
+                    }
+                });
+                }
+                function error(err) {
+                    console.log(err.code);
+                }
+
+                navigator.geolocation.getCurrentPosition(success, error);
+
             });
+
         }
     })
 
@@ -57,7 +101,7 @@
         defaults: {
             "signup": "false",
             "login": "not logged in",
-            "addfieldtrip": "false"
+
         }
     })
 
@@ -66,43 +110,37 @@
         view: "home"
     })
 
+
     Backbone.SignUpView = Backbone.TemplateView.extend({
         el: ".yo",
         view: "login",
         events: {
             "click #login": "login"
         },
-        login: function(event) {
-            event.preventDefault();
-            // debugger;
-            var x = {
-                login: this.el.querySelector("input[name='user']").value
-            }
-            this.model.add(x, {
-                validate: true
-            });
+        // login: function(event) {
+        //     event.preventDefault();
+        //     // debugger;
+        //     var x = {
+        //         login: this.el.querySelector("input[name='user']").value
+        //     }
+        //     this.model.add(x, {
+        //         validate: true
+        //     });
 
-        }
+        // }
     })
 
     Backbone.GamesView = Backbone.TemplateView.extend({
         el: ".yo",
-        view: "gamesview",
+        view: "games",
         events: {
-            "click #games": "games",
-            "submit form.login": "games"
+            "click #games": "games"
         },
-        trips: function(event) {
+        games: function(event) {
             event.preventDefault();
-            var data = {
-                fieldtrips: this.el.querySelector("button[name='Yo']").value
-            }
-            this.collection.add(data, {
-                validate: true
-            });
-            console.log(data);
         }
     })
+
 
     Backbone.DashBoardView = Backbone.TemplateView.extend({
         el: ".yo",
@@ -110,7 +148,7 @@
         events: {
             "click #dashboard": "dashboard"
         },
-        dashboardex: function(event) {
+        dashboard: function(event) {
             event.preventDefault();
         }
     })

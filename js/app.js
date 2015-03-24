@@ -48,6 +48,9 @@ function app() {
             url: "./js/person.js"
         }, {
             url: "./js/piqup.js"
+        },
+        {
+            url: "./js/gmaps.js"
         }
 
     ).then(function() {

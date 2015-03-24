@@ -1,14 +1,7 @@
 //////Index one block height//////
 $(document).ready(function() {
     //////Add place//////
-    $('#ad').on('click', function() {
-        "use strict";
-        $('#pl').removeClass("none");
-    })
-    $('#close').on('click', function() {
-        "use strict";
-        $('#pl').addClass("none");
-    })
+
 
 
 
@@ -42,6 +35,18 @@ $(document).ready(function() {
     })
 });
 
+
+    //////Add Place//////
+   function initAddMenu() {
+   $('#ad').on('click', function() {
+        "use strict";
+        $('#pl').removeClass("none");
+    })
+    $('#close').on('click', function() {
+        "use strict";
+        $('#pl').addClass("none");
+    })
+}
 
     //////Autorization//////
     function initTopMenu() {
