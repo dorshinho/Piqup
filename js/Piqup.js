@@ -30,8 +30,12 @@
             "trips": "trips",
             "*default": "home"
         },
-        signup: function() {
-            this.signupView.render()
+        signup: function()  {
+            this.signupView.render().then(function(){
+                initSideMenu();
+                initTopMenu();
+                new WOW().init();
+            });
         },
         dashboard: function() {
             this.dashboardView.render();
