@@ -47,7 +47,7 @@
                     this.map.addMarker({
                     lat: 29.637975,
                     lng: -95.395283,
-                    title: 'Houston',
+                    title: 'Houston Sports Complex',
 
                     click: function(e) {
                         alert('You clicked in this marker');
@@ -55,12 +55,33 @@
                 });
 
                       this.map.addMarker({
-                    lat: 29.637975,
-                    lng: -95.395283,
-                    title: 'Houston Dynmao',
+                    lat: 29.748395,
+                    lng: -95.353005,
+                    title: 'Houston Street Soccer',
 
                     click: function(e) {
-                        alert('You clicked in this marker');
+                       this.map = GMaps.createPanorama({
+                    el: '#map',
+                    lat : 29.748395,
+                    lng : -95.353005,
+
+});
+
+                    }
+                });
+                        this.map.addMarker({
+                    lat: 30.075296,
+                    lng: -95.214665,
+                    title: 'Northpark Soccer Fields',
+
+                    click: function(e) {
+                       this.map = GMaps.createPanorama({
+                    el: '#map',
+                    lat : 30.075296,
+                    lng : -95.214665,
+
+});
+
                     }
                 });
                 }
@@ -72,18 +93,19 @@
 
             });
         },
+
         dashboard: function() {
           this.dashboardView.render().then(function(){
-                initAddMenu();
+                initSideMenu();
                 initTopMenu();
-                new WOW().init();
+                // new WOW().init();
             });
         },
          games: function() {
         this.gamesView.render().then(function(){
                 initSideMenu();
                 initTopMenu();
-                new WOW().init();
+                // new WOW().init();
             });
         },
         home: function() {
