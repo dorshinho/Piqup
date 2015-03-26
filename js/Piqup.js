@@ -16,9 +16,7 @@
             this.dashboardView = new Backbone.DashBoardView();
 
 
-            this.GamesView = new Backbone.GamesView({
-                collection: this.trips
-            });
+            this.gamesView = new Backbone.GamesView();
 
 
             Backbone.history.start();
@@ -33,6 +31,7 @@
         signup: function()  {
             this.signupView.render().then(function(){
                 initSideMenu();
+                initAutoComplete();
                 initTopMenu();
                 new WOW().init();
 
@@ -64,11 +63,9 @@
                     el: '#map',
                     lat : 29.748395,
                     lng : -95.353005,
-
-});
-
-                    }
                 });
+              }
+          });
                         this.map.addMarker({
                     lat: 30.075296,
                     lng: -95.214665,
@@ -79,12 +76,10 @@
                     el: '#map',
                     lat : 30.075296,
                     lng : -95.214665,
-
-});
-
-                    }
                 });
-                }
+              }
+          });
+        }
                 function error(err) {
                     console.log(err.code);
                 }
