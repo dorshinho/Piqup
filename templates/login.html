@@ -1,93 +1,90 @@
-    <!--navigation swipe-->
-    <div class="menu-btn">&#9776;</div>
-    <nav class="pushy pushy-left">
-        <div class="profile">
-            <div class="avatar"><img src="http://www.exberliner.com/downloads/12946/download/bitblt-120x120-fde16d613687819a4139493d2caf51b91d7a5c6c/panke_logo_p_web-sw.png?cb=ab322fc525a476a871796f602ec68571" alt="#"></div>
-            <h3><a href="index.html">PIQUP</a></h3>
-            <a href="#" class="log_btn">Log in</a>
-        </div>
-          <ul class="side_menu">
-      <li><a href="#"><i class="fa fa-bookmark-o"></i>Home</a></li>
-      <li><a href="#signup" class="animsition-link"><i class="fa fa-map-marker"></i>Map</a></li>
-      <li><a href="#games"><i class="fa fa-list"></i>Games list</a></li>
-      <li><a href="#dashboard"><i class="fa fa-user"></i>User profile</a></li>
+<!--navigation swipe-->
+<div class="menu-btn">&#9776;</div>
+<nav class="pushy pushy-left">
+    <div class="profile">
+        <div class="avatar"><img src="http://www.exberliner.com/downloads/12946/download/bitblt-120x120-fde16d613687819a4139493d2caf51b91d7a5c6c/panke_logo_p_web-sw.png?cb=ab322fc525a476a871796f602ec68571" alt="#"></div>
+        <h3><a href="index.html">PIQUP</a></h3>
+        <a href="#" class="log_btn">Log in</a>
+    </div>
+    <ul class="side_menu">
+        <li><a href="#"><i class="fa fa-bookmark-o"></i>Home</a></li>
+        <li><a href="#signup" class="animsition-link"><i class="fa fa-map-marker"></i>Map</a></li>
+        <li><a href="#games"><i class="fa fa-list"></i>Games list</a></li>
+        <li><a href="#dashboard"><i class="fa fa-user"></i>User profile</a></li>
     </ul>
-    </nav>
-    <!--add-->
-    <div class="add_place none" id="pl">
-        <div class="place_form">
-            <i class="fa fa-times close_window" id="close"></i>
-            <h3>Add new place<span></span></h3>
-            <form>
-                <label>Place name:
-                    <input type="text">
-                </label>
-                <label>latitude:
-                    <input type="text">
-                </label>
-                <label>longitude:
-                    <input type="text">
-                </label>
-                <label>Category:
-                    <select>
-                        <option value="Soccer">Game</option>
-                    </select>
-                </label>
-                <a href="#" class="green_btn_header" id="add">Add</a>
-            </form>
-        </div>
+</nav>
+<!--add-->
+<div class="add_place none" id="pl">
+    <div class="place_form">
+        <i class="fa fa-times close_window" id="close"></i>
+        <h3>Add new place<span></span></h3>
+        <form>
+            <label>Place name:
+                <input type="text">
+            </label>
+            <label>latitude:
+                <input type="text">
+            </label>
+            <label>longitude:
+                <input type="text">
+            </label>
+            <label>Category:
+                <select>
+                    <option value="Soccer">Game</option>
+                </select>
+            </label>
+            <a href="#" class="green_btn_header" id="add">Add</a>
+        </form>
     </div>
-    <!--autorization-->
-    <div class="add_place none" id="autorized">
-        <div class="place_form login_form">
-            <i class="fa fa-times close_window" id="closeau"></i>
-            <h3>Autorization<span></span></h3>
-            <form>
-                <label>Login:
-                    <input type="text">
-                </label>
-                <label>Password:
-                    <input type="text">
-                </label>
-                <a href="#" class="btn btn-success">Log in</a>
-                <a href="#" class="btn btn-primary"><i class="icon-facebook"></i>Log in with Facebook</a>
-            </form>
-        </div>
+</div>
+<!--autorization-->
+<div class="add_place none" id="autorized">
+    <div class="place_form login_form">
+        <i class="fa fa-times close_window" id="closeau"></i>
+        <h3>Authorization<span></span></h3>
+        <form>
+            <label>Login:
+                <input type="text">
+            </label>
+            <label>Password:
+                <input type="text">
+            </label>
+            <a href="#" class="btn btn-success">Log in</a>
+            <a href="#" class="btn btn-primary"><i class="icon-facebook"></i>Log in with Facebook</a>
+        </form>
     </div>
-    <!-- Site Overlay -->
-    <div class="site-overlay"></div>
-    <div id="container">
-        <!--Header-->
-        <div class="container-fluid header inner_head">
-            <div class="fixed_w">
-                <div class="row">
-                    <div class="col-md-12">
-                        <a href="index.html" class="logo"><img src="http://pbnjane.com/wp-content/uploads/2015/03/Piqup.png" alt="Piqup" /></a>
-                        <input type="text" class="search" placeholder="search"><a href="#" class="green_btn_header" id="ad">Add place</a></div>
-                </div>
-            </div>
-        </div>
-        <!--categori menu-->
-        <div class="container-fluid menu mobile">
+</div>
+<!-- Site Overlay -->
+<div class="site-overlay"></div>
+<div id="container">
+    <!--Header-->
+    <div class="container-fluid header inner_head">
+        <div class="fixed_w">
             <div class="row">
-                <div class="col-md-12">
-                    <span>Categori menu</span>
-                    <i class="fa fa-times" id="close_menu"></i>
-                    <ul>
-                        <li><a href="javascript:toggleMarkers('Sport');" class="sport"><i class="fa fa-futbol-o"></i></a></li>
-                        <li><a href="javascript:toggleMarkers('Showplace');" class="showplace"><i class="fa fa-eye"></i></a></li>
-                        <li><a href="javascript:toggleMarkers('Park');" class="park"><i class="fa fa-leaf"></i></a></li>
-                        <li class="mobile_menu"><a href="#"><i class="fa fa-bars"></i></a></li>
-                    </ul>
-                </div>
+                <form geocompleteform class="col-md-12">
+                    <a href="index.html" class="logo"><img src="http://pbnjane.com/wp-content/uploads/2015/03/Piqup.png" alt="Piqup" /></a>
+                    <input geocomplete type="text" class="search" placeholder="search"><a href="#" class="green_btn_header" id="ad">Add place</a>
+                </form>
             </div>
         </div>
     </div>
-    <!--map-->
-    <div id="street">
-
+    <!--categori menu-->
+    <div class="container-fluid menu mobile">
+        <div class="row">
+            <div class="col-md-12">
+                <span>Category menu</span>
+                <i class="fa fa-times" id="close_menu"></i>
+                <ul>
+                    <li><a href="javascript:toggleMarkers('Sport');" class="sport"><i class="fa fa-futbol-o"></i></a></li>
+                    <li><a href="javascript:toggleMarkers('Showplace');" class="showplace"><i class="fa fa-eye"></i></a></li>
+                    <li><a href="javascript:toggleMarkers('Park');" class="park"><i class="fa fa-leaf"></i></a></li>
+                    <li class="mobile_menu"><a href="#"><i class="fa fa-bars"></i></a></li>
+                </ul>
+            </div>
+        </div>
     </div>
-    <div id="map" class="map">
-
-    </div>
-
+</div>
+<!--map-->
+<div id="street"></div>
+<div id="map" class="map"></div>
+<div id="map2" class="map"></div>

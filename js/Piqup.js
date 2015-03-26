@@ -14,10 +14,9 @@
 
             this.signupView = new Backbone.SignUpView();
             this.dashboardView = new Backbone.DashBoardView();
-
-
             this.gamesView = new Backbone.GamesView();
 
+            autocompleteEvents(); // listen to geocomplete form ONCE and only once
 
             Backbone.history.start();
         },
@@ -28,125 +27,128 @@
             "games": "games",
             "*default": "home"
         },
-        signup: function()  {
-            this.signupView.render().then(function(){
+        signup: function() {
+            this.signupView.render().then(function() {
                 initSideMenu();
-                initAutoComplete();
-                initTopMenu();
+                initAutoCompleteWithMap();
+                // initTopMenu();
                 new WOW().init();
 
                 function success(pos) {
-                    // pos.coords.latitude;
-                    this.map = new GMaps ({
-                        el: "#map",
+
+                    pos.coords.latitude;
+
+                    this.map2 = new GMaps({
+                        el: "#map2",
                         lat: pos.coords.latitude,
                         lng: pos.coords.longitude
                     })
 
-                    this.map.addMarker({
-                    lat: 29.637975,
-                    lng: -95.395283,
-                    title: 'Houston Sports Complex',
+                    this.map2.addMarker({
+                        lat: 29.637975,
+                        lng: -95.395283,
+                        title: 'Houston Sports Complex',
 
-                    click: function(e) {
-                        alert('You clicked in this marker');
-                    }
-                });
+                        click: function(e) {
+                            alert('You clicked in this marker');
+                        }
+                    });
 
-                      this.map.addMarker({
-                    lat: 29.748395,
-                    lng: -95.353005,
-                    title: 'Houston Street Soccer',
+                    this.map2.addMarker({
+                        lat: 29.748395,
+                        lng: -95.353005,
+                        title: 'Houston Street Soccer',
 
-                    click: function(e) {
-                       this.map = GMaps.createPanorama({
-                    el: '#map',
-                    lat : 29.748395,
-                    lng : -95.353005,
-                });
-              }
-          });
-                        this.map.addMarker({
-                    lat: 30.075296,
-                    lng: -95.214665,
-                    title: 'Northpark Soccer Fields',
+                        click: function(e) {
+                            this.map2 = GMaps.createPanorama({
+                                el: '#map2',
+                                lat: 29.748395,
+                                lng: -95.353005,
+                            });
+                        }
+                    });
+                    this.map2.addMarker({
+                        lat: 30.075296,
+                        lng: -95.214665,
+                        title: 'Northpark Soccer Fields',
 
-                    click: function(e) {
-                       this.map = GMaps.createPanorama({
-                    el: '#map',
-                    lat : 30.075296,
-                    lng : -95.214665,
-                });
-              }
-          });
-        }
+                        click: function(e) {
+                            this.map2 = GMaps.createPanorama({
+                                el: '#map',
+                                lat: 30.075296,
+                                lng: -95.214665,
+                            });
+                        }
+                    });
+
+                }
+
                 function error(err) {
                     console.log(err.code);
                 }
 
-                navigator.geolocation.getCurrentPosition(success, error);
+                navigator.geolocation.getCurrentPosition(success.bind(this), error);
 
             });
         },
 
         dashboard: function() {
-          this.dashboardView.render().then(function(){
+            this.dashboardView.render().then(function() {
                 initSideMenu();
                 initTopMenu();
                 // new WOW().init();
             });
         },
-         games: function() {
-        this.gamesView.render().then(function(){
+        games: function() {
+            this.gamesView.render().then(function() {
                 initSideMenu();
                 initTopMenu();
                 // new WOW().init();
             });
         },
         home: function() {
-            this.view.render().then(function(){
+            this.view.render().then(function() {
                 initSideMenu();
-                initTopMenu();
                 initAutoComplete();
                 new WOW().init();
 
-        //         function success(pos) {
-        //             // pos.coords.latitude;
-        //             this.map = new GMaps ({
-        //                 el: "#map",
-        //                 lat: pos.coords.latitude,
-        //                 lng: pos.coords.longitude
-        //             })
+                //         function success(pos) {
+                //             // pos.coords.latitude;
+                //             this.map = new GMaps ({
+                //                 el: "#map",
+                //                 lat: pos.coords.latitude,
+                //                 lng: pos.coords.longitude
+                //             })
 
-        //             this.map.addMarker({
-        //             lat: 29.637975,
-        //             lng: -95.395283,
-        //             title: 'Houston',
+                //             this.map.addMarker({
+                //             lat: 29.637975,
+                //             lng: -95.395283,
+                //             title: 'Houston',
 
-        //             click: function(e) {
-        //                 alert('You clicked in this marker');
-        //             }
-        //         });
+                //             click: function(e) {
+                //                 alert('You clicked in this marker');
+                //             }
+                //         });
 
-        //               this.map.addMarker({
-        //             lat: 29.637975,
-        //             lng: -95.395283,
-        //             title: 'Houston Dynmao',
+                //               this.map.addMarker({
+                //             lat: 29.637975,
+                //             lng: -95.395283,
+                //             title: 'Houston Dynmao',
 
-        //             click: function(e) {
-        //                 alert('You clicked in this marker');
-        //             }
-        //         });
-        //         }
-        //         function error(err) {
-        //             console.log(err.code);
-        //         }
+                //             click: function(e) {
+                //                 alert('You clicked in this marker');
+                //             }
+                //         });
+                //         }
+                //         function error(err) {
+                //             console.log(err.code);
+                //         }
 
-        //         navigator.geolocation.getCurrentPosition(success, error);
+                //         navigator.geolocation.getCurrentPosition(success, error);
 
-             });
+            });
 
-         }
+        }
     })
 
     Backbone.Session = Backbone.Model.extend({

@@ -10,11 +10,28 @@
 </head>
 
 <body class="promo">
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '868771933162261',
+      xfbml      : true,
+      version    : 'v2.3'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
     <div class="yo"></div>
     <!-- if using loader, use the line below -->
     <script type="text/javascript" src="./bower_components/Loader/loader.js" id="loaderjs" data-app="./js/app.js"></script>
-     <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
-     <script src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
+
+     <script src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=true"></script>
 
 </body>
 

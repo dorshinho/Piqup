@@ -36,9 +36,9 @@ $(document).ready(function() {
 });
 
 
-    //////Add Place//////
-   function initAddMenu() {
-   $('#ad').on('click', function() {
+//////Add Place//////
+function initAddMenu() {
+    $('#ad').on('click', function() {
         "use strict";
         $('#pl').removeClass("none");
     })
@@ -49,17 +49,32 @@ $(document).ready(function() {
 }
 
 ///////Auto Complete/////
-    function initAutoComplete() {
-    $("input").geocomplete();
+function autocompleteEvents(){
+    $(document.body).on("keyup", function(e){
+        if(e.which === 13) // hit Enter
+            $("[geocompleteform]").trigger("submit", { geocoded: true });
+    })
+    // Trigger geocoding request.
+    $(document.body).on("submit", "[geocompleteform]", function(e) {
+        // router go to map page
+        $("#map2").css({display: "none"})
+        $("[geocomplete]").trigger("geocode");
 
-// Trigger geocoding request.
-$("button.find").click(function(){
-  $("input").trigger("geocode");
-});
+    });
 }
 
-    //////Autorization//////
-    function initTopMenu() {
+function initAutoComplete() {
+    $("[geocomplete]").geocomplete();
+}
+
+function initAutoCompleteWithMap() {
+    $("[geocomplete]").geocomplete({
+        map: "#map"
+    });
+}
+
+//////Autorization//////
+function initTopMenu() {
     $('.log_btn').on('click', function() {
         "use strict";
         $('#autorized').removeClass("none");

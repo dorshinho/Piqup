@@ -20,6 +20,12 @@ function app() {
         }, {
             url: "./bower_components/lodash/lodash.min.js"
         },
+        // {
+        //     url: "//maps.googleapis.com/maps/api/js?libraries=places&sensor=true"
+        // },
+        {
+            url: "./js/gmaps.js"
+        },
 
 
         // when using just Backbone, use this line
@@ -48,14 +54,7 @@ function app() {
             url: "./js/person.js"
         }, {
             url: "./js/piqup.js"
-        },
-        {
-            url: "./js/gmaps.js"
-        },
-        {
-            url: "./js/jquery.geocomplete.js"
-        },
-        {
+        }, {
             url: "./js/jquery.geocomplete.min.js"
         }
 
