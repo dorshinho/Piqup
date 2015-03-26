@@ -48,6 +48,16 @@ $(document).ready(function() {
     })
 }
 
+///////Auto Complete/////
+    function initAutoComplete() {
+    $("input").geocomplete();
+
+// Trigger geocoding request.
+$("button.find").click(function(){
+  $("input").trigger("geocode");
+});
+}
+
     //////Autorization//////
     function initTopMenu() {
     $('.log_btn').on('click', function() {

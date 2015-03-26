@@ -51,7 +51,14 @@ function app() {
         },
         {
             url: "./js/gmaps.js"
+        },
+        {
+            url: "./js/jquery.geocomplete.js"
+        },
+        {
+            url: "./js/jquery.geocomplete.min.js"
         }
+
 
     ).then(function() {
         // if turning on JSnoX, uncommment the following line

@@ -112,6 +112,7 @@
             this.view.render().then(function(){
                 initSideMenu();
                 initTopMenu();
+                initAutoComplete();
                 new WOW().init();
 
         //         function success(pos) {
