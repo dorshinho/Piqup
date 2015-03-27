@@ -14,7 +14,9 @@
 
             this.signupView = new Backbone.SignUpView();
             this.dashboardView = new Backbone.DashBoardView();
+            this.detailsView = new Backbone.DetailsView();
             this.gamesView = new Backbone.GamesView();
+
 
             autocompleteEvents(); // listen to geocomplete form ONCE and only once
 
@@ -24,6 +26,7 @@
         routes: {
             "signup": "signup",
             "dashboard": "dashboard",
+            "details": "details",
             "games": "games",
             "*default": "home"
         },
@@ -31,7 +34,7 @@
             this.signupView.render().then(function() {
                 initSideMenu();
                 initAutoCompleteWithMap();
-                // initTopMenu();
+                 initTopMenu();
                 new WOW().init();
 
                 function success(pos) {
@@ -96,19 +99,26 @@
             this.dashboardView.render().then(function() {
                 initSideMenu();
                 initTopMenu();
-                // new WOW().init();
             });
         },
         games: function() {
             this.gamesView.render().then(function() {
                 initSideMenu();
                 initTopMenu();
-                // new WOW().init();
             });
         },
+
+         details: function() {
+            this.gamesView.render().then(function() {
+                initSideMenu();
+                initTopMenu();
+            });
+        },
+
         home: function() {
             this.view.render().then(function() {
                 initSideMenu();
+                 initTopMenu();
                 initAutoComplete();
                 new WOW().init();
 
@@ -195,6 +205,16 @@
         }
     })
 
+  Backbone.DetailsView = Backbone.TemplateView.extend({
+        el: ".yo",
+        view: "details",
+        events: {
+            "click #details": "details"
+        },
+        details: function(event) {
+            event.preventDefault();
+        }
+    })
 
     Backbone.DashBoardView = Backbone.TemplateView.extend({
         el: ".yo",
