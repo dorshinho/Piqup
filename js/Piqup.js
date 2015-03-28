@@ -109,7 +109,7 @@
         },
 
          details: function() {
-            this.gamesView.render().then(function() {
+            this.detailsView.render().then(function() {
                 initSideMenu();
                 initTopMenu();
             });
