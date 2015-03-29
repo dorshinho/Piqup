@@ -7,7 +7,6 @@
 
         initialize: function() {
 
-            this.model = new Backbone.Session();
             this.view = new Backbone.HomeView({
                 model: this.model
             });
@@ -161,13 +160,6 @@
         }
     })
 
-    Backbone.Session = Backbone.Model.extend({
-        defaults: {
-            "signup": "false",
-            "login": "not logged in",
-
-        }
-    })
 
     Backbone.HomeView = Backbone.TemplateView.extend({
         el: ".yo",
