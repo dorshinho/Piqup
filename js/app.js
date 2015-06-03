@@ -51,7 +51,7 @@ function app() {
         }, {
             url: "./js/TemplateView.js"
         }, {
-            url: "./js/piqup.js"
+            url: "./js/Piqup.js"
         }, {
             url: "./js/jquery.geocomplete.min.js"
         }
