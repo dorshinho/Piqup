@@ -13,7 +13,9 @@
 
             this.signupView = new Backbone.SignUpView();
             this.dashboardView = new Backbone.DashBoardView();
-            this.detailsView = new Backbone.DetailsView();
+            this.hspView = new Backbone.HspView();
+            this.torosView = new Backbone.TorosView();
+            this.memorialView = new Backbone.MemorialView();
             this.gamesView = new Backbone.GamesView();
 
 
@@ -25,10 +27,13 @@
         routes: {
             "signup": "signup",
             "dashboard": "dashboard",
-            "details": "details",
+            "hsp": "hsp",
+            "toros": "toros",
+            "memorial": "memorial",
             "games": "games",
             "*default": "home"
         },
+
         signup: function() {
             this.signupView.render().then(function() {
                 initSideMenu();
@@ -100,6 +105,7 @@
                 initTopMenu();
             });
         },
+
         games: function() {
             this.gamesView.render().then(function() {
                 initSideMenu();
@@ -107,12 +113,27 @@
             });
         },
 
-         details: function() {
-            this.detailsView.render().then(function() {
+         hsp: function() {
+            this.hspView.render().then(function() {
                 initSideMenu();
                 initTopMenu();
             });
         },
+
+         toros: function() {
+            this.torosView.render().then(function() {
+                initSideMenu();
+                initTopMenu();
+            });
+        },
+
+         memorial: function() {
+            this.memorialView.render().then(function() {
+                initSideMenu();
+                initTopMenu();
+            });
+        },
+
 
         home: function() {
             this.view.render().then(function() {
@@ -197,13 +218,35 @@
         }
     })
 
-  Backbone.DetailsView = Backbone.TemplateView.extend({
+  Backbone.HspView = Backbone.TemplateView.extend({
         el: ".yo",
-        view: "details",
+        view: "hsp",
         events: {
-            "click #details": "details"
+            "click #hsp": "hsp"
         },
-        details: function(event) {
+        hsp: function(event) {
+            event.preventDefault();
+        }
+    })
+
+    Backbone.TorosView = Backbone.TemplateView.extend({
+        el: ".yo",
+        view: "toros",
+        events: {
+            "click #toros": "toros"
+        },
+        toros: function(event) {
+            event.preventDefault();
+        }
+    })
+
+    Backbone.MemorialView = Backbone.TemplateView.extend({
+        el: ".yo",
+        view: "memorial",
+        events: {
+            "click #memorial": "memorial"
+        },
+        memorial: function(event) {
             event.preventDefault();
         }
     })
